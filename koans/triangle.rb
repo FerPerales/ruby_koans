@@ -1,3 +1,4 @@
+
 # Triangle Project Code.
 
 # Triangle analyzes the lengths of the sides of a triangle
@@ -13,8 +14,11 @@
 # and
 #   about_triangle_project_2.rb
 #
-def triangle(a, b, c)
-  # WRITE THIS CODE
+def triangle(a, b, c)	
+  type = :isosceles if (a == b) || (a == c) || (b == c)
+  type = :equilateral if a == b and b == c
+  type = :scalene if a != b && b != c && c != a
+  return type
 end
 
 # Error class used in part 2.  No need to change this code.
