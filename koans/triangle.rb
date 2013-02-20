@@ -15,6 +15,9 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)	
+
+  raise TriangleError, "Negative numbers" if (a <= 0 || b <= 0 || c <= 0)
+	raise TriangleError, "No two sides can add to be less than or equal to the other side" if (a+b <= c) || (a+c <= b) || (b+c <= a)
   type = :isosceles if (a == b) || (a == c) || (b == c)
   type = :equilateral if a == b and b == c
   type = :scalene if a != b && b != c && c != a
@@ -23,4 +26,10 @@ end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+	begin 
+		raise TriangleError
+	rescue	
+	end
+	
+	
 end
